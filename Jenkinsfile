@@ -19,7 +19,7 @@ pipeline {
             steps {
                 dir('backend/backend') {
                     withSonarQubeEnv('SonarQube') {
-                        sh 'mvn sonar:sonar -Dsonar.projectKey=DevOps-AppGestionDesProjets'
+                        sh 'mvn org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=DevOps-AppGestionDesProjets'
                     }
                 }
             }
