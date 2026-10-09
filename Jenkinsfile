@@ -15,5 +15,14 @@ pipeline {
                 }
             }
         }
+        stage('SonarQube Analysis') {
+            steps {
+                dir('backend/backend') {
+                    withSonarQubeEnv('SonarQube') {
+                        sh 'mvn sonar:sonar -Dsonar.projectKey=DevOps-AppGestionDesProjets'
+                    }
+                }
+            }
+        }
     }
 }
